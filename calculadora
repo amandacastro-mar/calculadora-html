@@ -1,0 +1,51 @@
+<h1>Calculadora</h1>
+
+<input type="number" placeholder="Digite o valor do produto" id="valor">
+
+<button onclick="calcular()">Calcular</button>
+<button onclick="exibirDesconto()">Exibir Desconto</button>
+
+<h2 id="resultado"></h2>
+
+<script>
+
+let desconto = 0;
+let valorFinal = 0;
+let valor = 0;
+
+function calcular() {
+
+    valor = Number(document.getElementById("valor").value);
+
+    if (valor > 100) {
+
+        desconto = valor * 0.10;
+        valorFinal = valor * 0.90;
+
+    } else {
+
+        desconto = 0;
+        valorFinal = valor;
+
+    }
+
+}
+
+function exibirDesconto() {
+
+    if (valor > 100) {
+
+        document.getElementById("resultado").innerHTML =
+        "Valor do desconto: R$ " + desconto +
+        "<br>Valor Final: R$ " + valorFinal;
+
+    } else {
+
+        document.getElementById("resultado").innerHTML =
+        "Esse produto não possui desconto.";
+
+    }
+
+}
+
+</script>
